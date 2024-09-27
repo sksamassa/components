@@ -1,33 +1,39 @@
-import { useState } from "react";
-import { GoBell } from "react-icons/go";
-import { GoDatabase } from "react-icons/go";
 import "./App.css";
-import Button from "./Button";
+import Accordion from "./components/Accordion";
+// import ButtonPage from "./pages/ButtonPage";
+
+const items = [
+  {
+    id: 1,
+    label: "Can I can use React on a project?",
+    content: `Lorem ipsum odor amet, consectetuer adipiscing elit. Nascetur ornare vitae per quam nascetur curae metus consectetur consectetur. Nunc turpis parturient sit condimentum nibh nisi cubilia nostra. Mollis molestie ac purus leo suscipit vehicula. Ex consectetur dolor morbi vestibulum; erat gravida integer. Condimentum nisl per luctus per efficitur. Sollicitudin aptent inceptos magna mollis elementum molestie. Nascetur sapien hendrerit dui cras bibendum vestibulum. Semper malesuada at litora turpis, sollicitudin per.`,
+  },
+  {
+    id: 2,
+    label: "Can I can use React on a project?",
+    content: `Lorem ipsum odor amet, consectetuer adipiscing elit. Nascetur ornare vitae per quam nascetur curae metus consectetur consectetur. Nunc turpis parturient sit condimentum nibh nisi cubilia nostra. Mollis molestie ac purus leo suscipit vehicula. Ex consectetur dolor morbi vestibulum; erat gravida integer. Condimentum nisl per luctus per efficitur. Sollicitudin aptent inceptos magna mollis elementum molestie. Nascetur sapien hendrerit dui cras bibendum vestibulum. Semper malesuada at litora turpis, sollicitudin per.`,
+  },
+  {
+    id: 3,
+    label: "Can I can use React on a project?",
+    content: `Lorem ipsum odor amet, consectetuer adipiscing elit. Nascetur ornare vitae per quam nascetur curae metus consectetur consectetur. Nunc turpis parturient sit condimentum nibh nisi cubilia nostra. Mollis molestie ac purus leo suscipit vehicula. Ex consectetur dolor morbi vestibulum; erat gravida integer. Condimentum nisl per luctus per efficitur. Sollicitudin aptent inceptos magna mollis elementum molestie. Nascetur sapien hendrerit dui cras bibendum vestibulum. Semper malesuada at litora turpis, sollicitudin per.`,
+  },
+  {
+    id: 4,
+    label: "Can I can use React on a project?",
+    content: `Lorem ipsum odor amet, consectetuer adipiscing elit. Nascetur ornare vitae per quam nascetur curae metus consectetur consectetur. Nunc turpis parturient sit condimentum nibh nisi cubilia nostra. Mollis molestie ac purus leo suscipit vehicula. Ex consectetur dolor morbi vestibulum; erat gravida integer. Condimentum nisl per luctus per efficitur. Sollicitudin aptent inceptos magna mollis elementum molestie. Nascetur sapien hendrerit dui cras bibendum vestibulum. Semper malesuada at litora turpis, sollicitudin per.`,
+  },
+  {
+    id: 5,
+    label: "Can I can use React on a project?",
+    content: `Lorem ipsum odor amet, consectetuer adipiscing elit. Nascetur ornare vitae per quam nascetur curae metus consectetur consectetur. Nunc turpis parturient sit condimentum nibh nisi cubilia nostra. Mollis molestie ac purus leo suscipit vehicula. Ex consectetur dolor morbi vestibulum; erat gravida integer. Condimentum nisl per luctus per efficitur. Sollicitudin aptent inceptos magna mollis elementum molestie. Nascetur sapien hendrerit dui cras bibendum vestibulum. Semper malesuada at litora turpis, sollicitudin per.`,
+  },
+];
 
 function App() {
-  const [count, setCount] = useState(0);
-
-  const handleClick = () => {
-    console.log('Clicked!')
-  }
-
   return (
-    <div className="block">
-      <Button className="m-4" onMouseEnter={() => console.log('Mouse enters')} onClick={handleClick} primary outline rounded>
-        Primary
-        
-      </Button>
-      <Button secondary outline>
-        Secondary
-      </Button>
-      <Button success><GoBell /> Success</Button>
-      <Button warning outline>
-        Warning
-      </Button>
-      <Button danger outline>
-      <GoDatabase />
-        Danger
-      </Button>
+    <div className="">
+      <Accordion items={items} />
     </div>
   );
 }
