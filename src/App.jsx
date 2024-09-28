@@ -1,13 +1,26 @@
-import { useState } from "react";
 import "./App.css";
 import DropDownPage from "./pages/DropDownPage";
+import ButtonPage from "./pages/ButtonPage";
+import Route from "./components/Route";
+import AccordionPage from "./pages/AccordionPage";
+import Sidebar from "./components/Sidebar";
 
 function App() {
-  const handleAge = (newAge) => {
-    setAge(newAge);
-  };
+  return (
+    <div className="flex px-6 p-4 gap-x-4">
+      <Sidebar />
 
-  return <div className=""></div>;
+      <Route path={"/accordion"}>
+        <AccordionPage />
+      </Route>
+      <Route path={"/"}>
+        <DropDownPage />
+      </Route>
+      <Route path={"/buttons"}>
+        <ButtonPage />
+      </Route>
+    </div>
+  );
 }
 
 export default App;

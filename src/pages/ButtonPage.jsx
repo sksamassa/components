@@ -4,20 +4,9 @@ import { GoDatabase } from "react-icons/go";
 import Button from "../components/Button";
 
 function ButtonPage() {
-  const handleClick = () => {
-    console.log("Clicked!");
-  };
-
   return (
     <div className="block space-y-4">
-      <Button
-        className="m-4"
-        onMouseEnter={() => console.log("Mouse enters")}
-        onClick={handleClick}
-        primary
-        outline
-        rounded
-      >
+      <Button className="m-4" primary outline rounded>
         Primary
       </Button>
       <Button secondary outline>

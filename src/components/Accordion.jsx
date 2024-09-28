@@ -6,9 +6,9 @@ export default function Accordion({ items }) {
   const [expandedIndex, setExpandedIndex] = useState();
 
   const handleClick = (nextIndex) => {
-    setExpandedIndex(currentIndex => {
-      return currentIndex === nextIndex ? -1 : nextIndex
-    })
+    setExpandedIndex((currentIndex) => {
+      return currentIndex === nextIndex ? -1 : nextIndex;
+    });
   };
 
   const renderedItems = items.map((item, index) => {
@@ -20,11 +20,11 @@ export default function Accordion({ items }) {
 
     return (
       <div
-        className="flex flex-col items-center justify-center border border-gray-1"
+        className="border border-gray-1"
         key={item.id}
       >
         <div
-          className="flex w-full items-center justify-between cursor-pointer bg-gray-100 p-4-"
+          className="flex items-center justify-between cursor-pointer bg-gray-100 p-4-"
           onClick={() => handleClick(index)}
         >
           {item.label} {icon}
@@ -34,5 +34,5 @@ export default function Accordion({ items }) {
     );
   });
 
-  return <div>{renderedItems}</div>;
+  return <div className="">{renderedItems}</div>;
 }

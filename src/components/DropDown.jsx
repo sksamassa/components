@@ -59,7 +59,7 @@ export default function DropDown({ options, value, onChange }) {
         {content} {icon}
       </Panel>
       {isOpen && (
-        <Panel className="absolute top-full border bg-white border-gray-100 shadow-md rounded-b-md">
+        <Panel className="absolute border bg-white border-gray-100 shadow-md rounded-b-md">
           {renderedOptions}
         </Panel>
       )}
