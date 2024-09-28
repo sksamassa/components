@@ -1,9 +1,25 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { GoTriangleDown } from "react-icons/go";
 import { GoTriangleUp } from "react-icons/go";
+import Panel from "./Panel";
 
 export default function DropDown({ options, value, onChange }) {
   const [isOpen, setIsOpen] = useState(false);
+  const dropdownRef = useRef(null);
+
+  useEffect(() => {
+    const handler = (event) => {
+      if (!dropdownRef?.current.contains(event.target)) {
+        setIsOpen(false);
+      }
+    };
+
+    document.addEventListener("click", handler, true);
+
+    return () => {
+      document.removeEventListener("click", handler);
+    };
+  }, []);
 
   const handleClick = () => {
     setIsOpen((currentIsOpen) => !currentIsOpen);
@@ -19,7 +35,11 @@ export default function DropDown({ options, value, onChange }) {
   const renderedOptions = options.map((option, index) => {
     return (
       <div>
-        <div onClick={() => handleOptionClick(option)} key={option.value}>
+        <div
+          className="w-full transition-all duration-150 hover:bg-gray-100"
+          onClick={() => handleOptionClick(option)}
+          key={option.value}
+        >
           {option.label}
         </div>
       </div>
@@ -31,17 +51,17 @@ export default function DropDown({ options, value, onChange }) {
   const icon = isOpen ? <GoTriangleUp /> : <GoTriangleDown />;
 
   return (
-    <div className="w-48 relative">
-      <div
-        className="flex justify-between items-center gap-x-4 bg-gray-100 p-4 rounded-t-md cursor-pointer w-full"
+    <div ref={dropdownRef} className="w-48 relative">
+      <Panel
+        className="flex justify-between items-center gap-x-4 bg-gray-100 rounded-t-md"
         onClick={handleClick}
       >
         {content} {icon}
-      </div>
+      </Panel>
       {isOpen && (
-        <div className="absolute top-full border bg-white border-gray-100 shadow-md p-4 w-full rounded-b-md cursor-pointer">
+        <Panel className="absolute top-full border bg-white border-gray-100 shadow-md rounded-b-md">
           {renderedOptions}
-        </div>
+        </Panel>
       )}
     </div>
   );
