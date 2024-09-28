@@ -17,7 +17,6 @@ export default function DropDownPage() {
   return (
     <div className="flex">
       <DropDown options={options} value={selected} onChange={handleSelect} />
-      <DropDown options={options} value={selected} onChange={handleSelect} /> 
     </div>
   );
 }

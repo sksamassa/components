@@ -7,11 +7,7 @@ function App() {
     setAge(newAge);
   };
 
-  return (
-    <div className="">
-      <DropDownPage />
-    </div>
-  );
+  return <div className=""></div>;
 }
 
 export default App;
