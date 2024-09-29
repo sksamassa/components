@@ -1,6 +1,6 @@
 import Modal from "../components/Modal";
 import Button from "../components/Button";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function ModalPage() {
   const [showModal, setShowModal] = useState(false);
@@ -12,6 +12,17 @@ export default function ModalPage() {
   const handleClick = () => {
     setShowModal((current) => (current = true));
   };
+
+  // The modal will shows up 5 seconds after user session starts up.
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowModal((current) => (current = true));
+    }, 5000);
+
+    return () => {
+      clearTimeout(timer);
+    };
+  }, []);
 
   const actionBar = (
     <Button onClick={handleClose} primary>
